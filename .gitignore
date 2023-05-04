@@ -1,0 +1,8 @@
+*.json
+*.md
+.exercism/
+__pycache__/
+.stack-work/
+bin/
+obj/
+build/

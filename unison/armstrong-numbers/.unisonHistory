@@ -1,0 +1,35 @@
+:q
+test
+update
+test
+update
+test
+load armstrongNumbers.test.u
+test
+cd exercism
+load armstrongNumbers.test.u
+test
+test exercism.armstrongNumbers.tests
+test
+add
+ui
+:q
+:q
+test
+update
+view 7
+find digit
+ui
+view 2
+find log
+view 2
+view 1
+find logBase
+ls logBase
+ls logbase
+test
+add
+load armstrongNumbers.test.u
+add
+fork .base lib.base
+cd exercism

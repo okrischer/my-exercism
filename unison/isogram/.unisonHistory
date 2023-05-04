@@ -1,0 +1,15 @@
+:q
+test isogram.tests
+test isogram
+test
+update
+test
+add
+load isogram.test.u
+load isogram.test.u
+update
+load isogram.test.u
+add
+ui
+test
+cd exercism
