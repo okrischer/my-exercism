@@ -1,6 +1,7 @@
 *.json
 *.md
 .exercism/
+.unisonHistory
 __pycache__/
 .stack-work/
 bin/
