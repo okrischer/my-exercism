@@ -13,7 +13,6 @@ raindrops.convert n =
 
 raindrops.convert : Nat -> Text
 raindrops.convert n =
-    factorize : Nat -> [Text]
     factorize = cases
         n | mod n 3 == 0 ->  factorize (n / 3) :+ "Pling"
         n | mod n 5 == 0 ->  factorize (n / 5) :+ "Plang"
