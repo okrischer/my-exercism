@@ -1,0 +1,7 @@
+acronym.abbreviate : Text -> Text
+acronym.abbreviate text =
+    text
+        |> segmentBy (c -> (isLetter c) || (c == ?\'))
+        |> map (take 1)
+        |> join ""
+        |> toUppercase
