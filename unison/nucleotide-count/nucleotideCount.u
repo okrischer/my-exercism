@@ -1,0 +1,16 @@
+nucleotideCount.nucleotideCounts : Text -> Optional (Map Text Nat)
+nucleotideCount.nucleotideCounts nucleotides =
+
+  validate = cases
+    "A" -> "A"
+    "C" -> "C"
+    "G" -> "G"
+    "T" -> "T"
+    otherwise -> abort
+
+  toOptional! '(nucleotides
+    |> chunk 1
+    |> map validate
+    |> fromList
+    |> counts
+    |> union <| toMap [("A", 0), ("C", 0), ("G", 0), ("T", 0)])

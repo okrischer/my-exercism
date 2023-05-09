@@ -1,5 +1,6 @@
 *.json
 *.md
+*.swp
 .exercism/
 .unisonHistory
 __pycache__/

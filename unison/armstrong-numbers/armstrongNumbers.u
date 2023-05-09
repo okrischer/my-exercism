@@ -7,5 +7,5 @@ armstrongNumbers.isArmstrongNumber number =
     n -> toDigits (n / 10) :+ (mod n 10)
 
   digits = toDigits number
-  sum = List.foldLeft (acc -> d -> acc + Nat.pow d (size digits)) 0 digits
+  sum = List.foldLeft (acc d -> acc + Nat.pow d (size digits)) 0 digits
   sum == number
