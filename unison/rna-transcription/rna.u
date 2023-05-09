@@ -1,0 +1,15 @@
+rna.toRNA : Text -> Optional Text
+rna.toRNA dna =
+
+  transcribe = cases
+    "G" -> "C"
+    "C" -> "G"
+    "T" -> "A"
+    "A" -> "U"
+    _   -> abort
+
+  toOptional! '(dna
+    |> chunk 1
+    |> map transcribe
+    |> Text.join "")
+    
