@@ -1,7 +1,7 @@
 reverseString.reverse : Text -> Text
 reverseString.reverse text =
-  go list = match list with
-    c +: cs -> (go cs) :+ c
-    _       -> []
-  go (toCharList text) |> fromCharList
+  go list acc = match list with
+    c +: cs -> go cs (c List.+: acc)
+    _       -> acc
+  go (toCharList text) [] |> fromCharList
 

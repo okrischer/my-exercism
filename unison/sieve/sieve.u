@@ -1,0 +1,8 @@
+sieve.primes : Nat -> [Nat]
+sieve.primes n =
+	sieve = cases
+		n +: ns -> n List.+: sieve (filterMap (isPrime n) ns)
+		_ -> []
+	isPrime n p = if mod p n == 0 then None else Some p
+	sieve (Nat.rangeClosed 2 n)
+
