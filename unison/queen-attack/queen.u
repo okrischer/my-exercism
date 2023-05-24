@@ -1,0 +1,8 @@
+queenAttack.create : (Nat,Nat) -> {Abort} (Nat,Nat)
+queenAttack.create = cases
+  (x, y) | (x > 7) || (y > 7) -> abort
+  c -> c
+
+queenAttack.canAttack  : (Nat,Nat) -> (Nat,Nat) -> {Abort} Boolean
+queenAttack.canAttack = cases
+  (x, y), (x', y') -> (x == x') || (y ==y') || (diff x x' == diff y y')

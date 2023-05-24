@@ -1,0 +1,7 @@
+sumOfMultiples.sumOfMultiples : [Nat] -> Nat -> Nat
+sumOfMultiples.sumOfMultiples targets upperBound =
+    List.range 1 upperBound
+        |> List.filter (n -> any (t -> t > 0 && (mod n t == 0)) targets)
+        |> sum
+
+> sumOfMultiples [3,5] 20

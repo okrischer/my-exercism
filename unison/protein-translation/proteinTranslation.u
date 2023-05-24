@@ -1,0 +1,17 @@
+proteinTranslation.proteins : Text -> [Text]
+proteinTranslation.proteins rna =
+    translate codon = match codon with
+        "AUG" -> "Methionine"
+        "UGG" -> "Tryptophan"
+        c | (c == "UUU") || (c == "UUC") -> "Phenylalanine"
+        c | (c == "UUA") || (c == "UUG") -> "Leucine"
+        c | (c == "UCU") || (c == "UCC") || (c == "UCA") || (c == "UCG") -> "Serine"
+        c | (c == "UAU") || (c == "UAC") -> "Tyrosine"
+        c | (c == "UGU") || (c == "UGC") -> "Cysteine"
+        _ -> "STOP"
+
+    takeWhile (p -> p != "STOP") <| map translate (Text.chunk 3 rna)
+
+> proteins ""
+> proteins "AUGUUUUGG"
+> proteins "UGGUAGUGG"
