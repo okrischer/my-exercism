@@ -1,0 +1,14 @@
+largestSeriesProduct.largestProduct : Text -> Int -> Optional Nat
+largestSeriesProduct.largestProduct sequence span =
+    match (map Nat.fromText <| Text.chunk 1 sequence, Nat.fromInt span) with
+        (_, None) -> None
+        (digits, Some s) ->
+            n = size digits
+            if (contains None digits) || (s > n) then None
+            else
+            filterMap id digits
+                |> tails
+                |> take (n+1-s)
+                |> map (take s)
+                |> map (Nat.product)
+                |> maximum
