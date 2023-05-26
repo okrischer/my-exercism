@@ -1,0 +1,26 @@
+runLengthEncoding.encode : Text -> Text
+runLengthEncoding.encode input =
+	toCharList input
+		|> groupConsecutive
+		|> map (group -> (if size group == 1 then "" else (Nat.toText (size group)))
+				++ (Char.toText (head group)))
+		|> join ""
+
+runLengthEncoding.decode : Text -> Text
+runLengthEncoding.decode input =
+	go : [Char] -> Text -> Text -> Text
+	go = cases
+		x +: xs, digits, acc
+			| isDigit x -> go xs (digits ++ Char.toText x) acc
+			| otherwise ->
+				n = fromText digits
+					|> cases
+						Some m 	-> m
+						None 	-> 1
+				go xs "" (acc ++ (repeat n (Char.toText x)))
+		_, _, acc -> acc
+	go (toCharList input) "" ""
+
+
+> encode "AABCCCDEEEE"
+> decode "2AB3CD4E"

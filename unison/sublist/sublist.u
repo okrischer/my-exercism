@@ -1,0 +1,9 @@
+unique type sublist.SublistType = Equal | Sublist | Superlist | Unequal
+
+sublist.sublist : [a] -> [a] -> SublistType
+sublist.sublist = cases
+  a, b
+    | a === b       -> Equal
+    | isInfixOf a b -> Sublist
+    | isInfixOf b a -> Superlist
+    | otherwise     -> Unequal
