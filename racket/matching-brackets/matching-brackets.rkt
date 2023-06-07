@@ -17,13 +17,13 @@
     
 
 (define (balanced? str)
-  (let iter ((stack null) (s (string->list str)))
+  (let loop ((stack null) (loc (string->list str)))
     (cond
-      ((null? s) (null? stack))
-      ((open? (car s)) (iter (cons (matching (car s)) stack) (cdr s)))
-      ((close? (car s))
+      ((null? loc) (null? stack))
+      ((open? (car loc)) (loop (cons (matching (car loc)) stack) (cdr loc)))
+      ((close? (car loc))
         (cond
           ((null? stack) #f)
-          ((eq? (car s) (car stack)) (iter (cdr stack) (cdr s)))
+          ((eq? (car loc) (car stack)) (loop (cdr stack) (cdr loc)))
           (else #f)))
-      (else (iter stack (cdr s))))))
+      (else (loop stack (cdr loc))))))
