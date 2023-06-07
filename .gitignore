@@ -2,11 +2,13 @@
 *.md
 *.swp
 *.toml
+*.*~
 .exercism/
 .unisonHistory
 __pycache__/
 .stack-work/
 bin/
+compiled/
 obj/
 build/
 target/
