@@ -7,6 +7,7 @@
 .unisonHistory
 __pycache__/
 .stack-work/
+dist-newstyle/
 bin/
 compiled/
 obj/
