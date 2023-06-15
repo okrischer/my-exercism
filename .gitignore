@@ -3,6 +3,7 @@
 *.swp
 *.toml
 *.*~
+.*/
 .exercism/
 .unisonHistory
 __pycache__/
