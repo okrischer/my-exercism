@@ -14,5 +14,6 @@ compiled/
 obj/
 build/
 target/
+testlib/
 project/
 
