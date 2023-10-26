@@ -1,4 +1,7 @@
 *.json
+*.gradle.kts
+gradlew
+gradlew.bat
 *.md
 *.swp
 *.toml
@@ -16,4 +19,5 @@ build/
 target/
 testlib/
 project/
+gradle/
 
