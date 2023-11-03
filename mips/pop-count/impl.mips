@@ -1,0 +1,13 @@
+        .globl egg_count
+
+egg_count:
+        li      $v0, 0          # set result counter to 0
+        move    $t0, $a0        # move input to $t0
+
+loop:
+        andi    $t1, $t0, 1     # test wether the lowest bit from input is set
+        add     $v0, $v0, $t1   # increment result if last bit is set
+        srl     $t0, $t0, 1     # shift input one bit to the right
+        bnez    $t0, loop       # continue loop if input is not 0
+
+        jr      $ra             # return result from $v0

@@ -2,6 +2,7 @@
 *.gradle.kts
 gradlew
 gradlew.bat
+*.jar
 *.md
 *.swp
 *.toml
