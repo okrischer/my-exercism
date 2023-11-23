@@ -1,0 +1,27 @@
+        .globl square
+
+square:
+        li      $v0, 0          # initialize lower result
+        li      $v1, 0          # initialize higher result
+
+        li      $t0, 1          # set lower bound to 1
+        blt		$a0, $t0, inv   # invalid input
+
+        sub     $a0, $a0, $t0   # decrement input to set power correctly
+        li      $t1, 32         # set higher bound to 32
+        blt     $a0, $t1, low   # branch to low if input < higher bound
+        sub     $a0, $a0, $t1   # subtract higher bound from input
+        blt     $a0, $t1, high  # branch to high if remaining input < higher bound
+
+inv:
+        j		done			# return 0 if input < 1 or input > 64
+
+low:
+        sllv	$v0, $t0, $a0   # 2 to the power of (input-1)
+        j		done            # return lower
+
+high:
+        sllv    $v1, $t0, $a0	# 2 to the power of remaining input
+
+done:
+        jr      $ra             # return result from function square
